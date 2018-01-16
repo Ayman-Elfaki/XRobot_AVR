@@ -26,7 +26,7 @@ init:
 
 	
 	;*** ADC Setup ***;
-	// Get the temperture reading
+	// Get the ADC05 pin reading
 	ldi temp1, (1 << REFS0) | (1 << MUX0) | (1 << MUX2) 
 	sts ADMUX,temp1
 	// Enable the ADC in Single Conversion Mode and with prescaler 128
@@ -43,7 +43,7 @@ init:
 	sts UBRR0H, temp1
 	ldi temp1,(buad)
 	sts UBRR0L, temp1
-	// Enable receiver 
+	// Enable receiver and transmiter
 	ldi temp1, (1<<RXEN0)|(1<<TXEN0)
 	sts UCSR0B,temp1
 	// Set frame format: 8 bit data
